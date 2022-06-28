@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{temasReunion.length <= 0 ? Reuniones : Temas}} </ion-title>
+    <ion-button *ngIf="temasReunion.length > 0" slot="end" (click)="temasReunion = []">
+      <ion-icon name="arrow-back-outline"></ion-icon>    
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="temasReunion.length <= 0">
+    <ion-item *ngFor="let reunion of reuniones" (click)="temasReuniones(reunion.id)">
+      <ion-label>
+        <h1>{{reunion.motivo}}</h1>
+        <h3>Equipo: {{reunion.equipo.name}}</h3>
+        <h3>Liga: {{reunion.liga.name}}</h3>
+        <h3>Fecha: {{reunion.horaToFind  | date: 'short'}}</h3>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngIf="temasReunion.length > 0">
+    <ion-item *ngFor="let tema of temasReunion" >
+      <ion-text color="dark">
+        <h1>{{tema.name}}</h1>
+      </ion-text>
+        <!-- <h3>Equipo: {{reunion.equipo.name}}</h3>
+        <h3>Liga: {{reunion.liga.name}}</h3>
+        <h3>Fecha: {{reunion.horaToFind  | date: 'short'}}</h3> -->
+    </ion-item>
+  </ion-list>
+</ion-content>

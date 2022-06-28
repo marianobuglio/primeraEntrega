@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <!--ion-button color="light" (click)="dismissLogin()">Close</ion-button-->
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-img [src]="'../../assets/re.png'"></ion-img>
+  <form [formGroup]="ionicForm" (ngSubmit)="submitForm()" novalidate>
+   
+
+    <ion-item >
+      <ion-label position="floating">Email</ion-label>
+      <ion-input formControlName="email" type="text"></ion-input>
+    </ion-item>
+    <span class="error-message ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.required">
+        Ingrese su mail
+    </span>
+
+
+    <ion-item >
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input formControlName="password" type="password"></ion-input>
+    </ion-item>
+    <span class="error-message ion-padding" *ngIf="isSubmitted && errorControl.password.errors?.required">
+      Ingrese su contraseña
+    </span>
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="primary" expand="block">Ingresar</ion-button>
+      </ion-col>
+    </ion-row>
+
+  </form>
+
+
+</ion-content>

@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>minutas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let reunion of reuniones">
+      <ion-label>
+        <h1>{{reunion.motivo}}</h1>
+        <h3>Equipo: {{reunion.equipo.name}}</h3>
+        <h3>Liga: {{reunion.liga.name}}</h3>
+        <h3>Fecha: {{reunion.horaToFind  | date: 'short'}}</h3>
+      </ion-label>
+      <ion-label (click)="pdfMinuta(reunion.pdfMinuta)" slot="end"><ion-icon name="document-outline" size="large" ></ion-icon></ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

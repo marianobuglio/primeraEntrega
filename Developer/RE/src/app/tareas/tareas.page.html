@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>tareas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let tarea of tareas">
+      <ion-label>
+        <h1>{{tarea.name}}</h1>
+        <h3>{{tarea.descripcion}}</h3>
+        <h3>Estado: {{tarea.estado? tarea.estado.name : 'Asignada'}}</h3>
+        <h2>Inicio: {{tarea.fechaInicio | date:'short'}}</h2>
+      </ion-label>
+     
+    </ion-item>
+  </ion-list>
+</ion-content>
